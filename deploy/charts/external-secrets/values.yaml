@@ -52,6 +52,8 @@ image:
   # Please see GitHub release notes for image tags for these flavors.
   # By default, the distroless image is used.
   flavour: ""
+  # -- The image digest to use (bypasses the tag and flavour)
+  digest: ""
 
 # -- If set, install and upgrade CRDs through helm chart.
 installCRDs: true
@@ -461,6 +463,8 @@ webhook:
     tag: ""
     # -- The flavour of tag you want to use
     flavour: ""
+    # -- The image digest to use (bypasses the tag and flavour)
+    digest: ""
   imagePullSecrets: []
   # -- The port the webhook will listen to
   port: 10250
@@ -665,6 +669,7 @@ certController:
     pullPolicy: IfNotPresent
     tag: ""
     flavour: ""
+    digest: ""
   imagePullSecrets: []
   rbac:
   # -- Specifies whether role and rolebinding resources should be created.

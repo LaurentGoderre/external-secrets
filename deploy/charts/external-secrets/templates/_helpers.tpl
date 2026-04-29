@@ -179,11 +179,19 @@ Determine the image to use, including if using a flavour.
 {{- else -}}
 {{- $repository = .image.repository -}}
 {{- end -}}
+{{- $tag := .image.tag -}}
+{{- $digest := .image.digest -}}
+{{- $reference := "" -}}
+{{- if $digest -}}
+{{- $reference = printf "@%s" $digest -}}
+{{- else -}}
 {{- if .image.flavour -}}
-{{ printf "%s:%s-%s" $repository (.image.tag | default .chartAppVersion) .image.flavour }}
+{{ $reference = printf ":%s-%s" (.image.tag | default .chartAppVersion) .image.flavour }}
 {{- else }}
-{{ printf "%s:%s" $repository (.image.tag | default .chartAppVersion) }}
-{{- end }}
+{{ $reference = printf ":%s" (.image.tag | default .chartAppVersion) }}
+{{- end -}}
+{{- end -}}
+{{ printf "%s%s" $repository $reference }}
 {{- end }}
 
 {{/*

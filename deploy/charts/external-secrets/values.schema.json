@@ -69,6 +69,9 @@
                         },
                         "tag": {
                             "type": "string"
+                        },
+                        "digest": {
+                            "type": "string"
                         }
                     }
                 },
@@ -504,6 +507,9 @@
                     "type": "string"
                 },
                 "tag": {
+                    "type": "string"
+                },
+                "digest":{
                     "type": "string"
                 }
             }
@@ -1014,6 +1020,9 @@
                             "type": "string"
                         },
                         "tag": {
+                            "type": "string"
+                        },
+                        "digest":{
                             "type": "string"
                         }
                     }
